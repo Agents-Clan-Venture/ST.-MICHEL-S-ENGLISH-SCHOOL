@@ -21,8 +21,152 @@ import g18 from "/Gallery/Celeb.jpg";
 import g19 from "/Gallery/KidsActivity.jpg";
 import g20 from "/Gallery/g20.png";
 import g21 from "/Gallery/g21.png";
+import aCampusBuilding from "/Gallery/album/campus-building.jpg";
+import aCampusGreenery from "/Gallery/album/campus-greenery.jpg";
+import aCampusValues from "/Gallery/album/campus-values.jpg";
+import aSportsSwimming from "/Gallery/album/sports-swimming.jpg";
+import aSportsMarchpast from "/Gallery/album/sports-marchpast.jpg";
+import aSportsYoga from "/Gallery/album/sports-yoga.jpg";
+import aSportsTrophies from "/Gallery/album/sports-trophies.jpg";
+import aArtsBand from "/Gallery/album/arts-band.jpg";
+import aArtsDance from "/Gallery/album/arts-dance.jpg";
+import aArtsCraft from "/Gallery/album/arts-craft.jpg";
+import aArtsStageBand from "/Gallery/album/arts-stage-band.jpg";
+import aAcadHandson from "/Gallery/album/academics-handson.jpg";
+import aAcadReading from "/Gallery/album/academics-reading.jpg";
+import aEventsGraduation from "/Gallery/album/events-graduation.jpg";
+import aEventsWomensday from "/Gallery/album/events-womensday.jpg";
+import aEventsPrize from "/Gallery/album/events-prize.jpg";
 
 const galleryItems: GalleryItem[] = [
+  {
+    id: "a1",
+    image: aCampusBuilding,
+    category: "Campus Life",
+    title: "Our School Campus",
+    description:
+      "The St. Michel's English School building, home to bright futures since 1981.",
+  },
+  {
+    id: "a2",
+    image: aCampusGreenery,
+    category: "Campus Life",
+    title: "Green Campus Initiative",
+    description:
+      "Students exploring the lush greenery around our campus, learning to love and protect nature.",
+  },
+  {
+    id: "a3",
+    image: aCampusValues,
+    category: "Campus Life",
+    title: "Values in Action",
+    description:
+      "Young students nurturing plants, learning responsibility and care for the environment.",
+  },
+  {
+    id: "a4",
+    image: aSportsSwimming,
+    category: "Sports",
+    title: "Swimming Sessions",
+    description:
+      "Students enjoying swimming as part of our physical education program.",
+  },
+  {
+    id: "a5",
+    image: aSportsMarchpast,
+    category: "Sports",
+    title: "March Past Parade",
+    description:
+      "Our students marching in perfect formation during the Annual Sports Meet.",
+  },
+  {
+    id: "a6",
+    image: aSportsYoga,
+    category: "Sports",
+    title: "International Yoga Day",
+    description:
+      "Students performing yoga together, promoting health and mindfulness.",
+  },
+  {
+    id: "a7",
+    image: aSportsTrophies,
+    category: "Sports",
+    title: "Annual Sports Meet Trophies",
+    description:
+      "Trophies awaiting our champions at the 45th Annual Sports Meet.",
+  },
+  {
+    id: "a8",
+    image: aArtsBand,
+    category: "Arts",
+    title: "School Band",
+    description:
+      "Our school band performing in their striking red uniforms.",
+  },
+  {
+    id: "a9",
+    image: aArtsDance,
+    category: "Arts",
+    title: "Dance Performance",
+    description:
+      "Students showcasing their talent in a group dance performance on stage.",
+  },
+  {
+    id: "a10",
+    image: aArtsCraft,
+    category: "Arts",
+    title: "Creative Craft Work",
+    description:
+      "Students proudly presenting their handmade craft project.",
+  },
+  {
+    id: "a11",
+    image: aArtsStageBand,
+    category: "Arts",
+    title: "Band on Stage",
+    description:
+      "The school band bringing energy to our celebrations with drums and music.",
+  },
+  {
+    id: "a12",
+    image: aAcadHandson,
+    category: "Academics",
+    title: "Hands-on Learning",
+    description:
+      "Students engaged in a practical hands-on learning workshop.",
+  },
+  {
+    id: "a13",
+    image: aAcadReading,
+    category: "Academics",
+    title: "Daily News Reading",
+    description:
+      "Building the reading habit: a student reads the newspaper to the school assembly.",
+  },
+  {
+    id: "a14",
+    image: aEventsGraduation,
+    category: "Events",
+    title: "Graduation Day",
+    description:
+      "Celebrating our little graduates on their special day.",
+  },
+  {
+    id: "a15",
+    image: aEventsWomensday,
+    category: "Events",
+    title: "International Women's Day",
+    description:
+      "Honouring our teachers and staff during the Women's Day celebration.",
+  },
+  {
+    id: "a16",
+    image: aEventsPrize,
+    category: "Events",
+    title: "Prize Distribution",
+    description:
+      "Young achievers on the podium receiving their well-earned awards.",
+  },
   {
     id: "1",
     image: g1,

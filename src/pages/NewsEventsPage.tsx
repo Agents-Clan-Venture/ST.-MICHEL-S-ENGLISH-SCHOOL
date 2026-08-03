@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Calendar, ArrowLeft, ArrowRight, ChevronDown } from "lucide-react";
-import { NewsItem, Event } from "../types";
+import { Calendar, ArrowLeft, ArrowRight } from "lucide-react";
+import { NewsItem } from "../types";
 import prize from "/Gallery/AcadAchiev.jpg";
 import republic from "/news/republic.jpg";
 import independence from "/news/independence.jpg";
@@ -105,69 +105,78 @@ This hands-on effort aimed to inspire students to value their environment and ca
   },
 ];
 
-const upcomingEvents: Event[] = [
-  {
-    id: "1",
-    title: "School Level Prathiba Karanji",
-    date: "July 28, 2025",
-    time: "3:00 PM - 7:00 PM",
-    location: "All Classrooms",
-    description:
-      "Schedule appointments to meet with your child's teachers and discuss academic progress.",
-  },
-  {
-    id: "2",
-    title: "78th Independence Day",
-    date: "August 15, 2025",
-    time: "7:00 PM",
-    location: "Auditorium",
-    description:
-      "Join us for an evening of music featuring performances by our band, orchestra, and choir.",
-  },
-  {
-    id: "3",
-    title: "Educational Trip for all the classes",
-    date: "November, 2025",
-    time: "9:00 AM - 2:00 PM",
-    location: "Gymnasium",
-    description:
-      "Students will present their research projects and scientific investigations.",
-  },
-  {
-    id: "4",
-    title: "Parents Sports",
-    date: "November, 2025",
-    time: "10:00 AM - 3:00 PM",
-    location: "Sports Fields",
-    description:
-      "A day of athletic competitions and activities for all grade levels.",
-  },
-  {
-    id: "5",
-    title: "Annual Sports Day Celebration",
-    date: "December, 2025",
-    time: "5:00 PM",
-    location: "Main Quad",
-    description:
-      "Celebrating our graduating seniors as they prepare for their next chapter.",
-  },
-  {
-    id: "6",
-    title: "45th Scoool Fest",
-    date: "January, 2026",
-    time: "5:00 PM",
-    location: "Main Quad",
-    description:
-      "Celebrating our graduating seniors as they prepare for their next chapter.",
-  },
-];
+/**
+ * Events are read from the academic calendar (public/calendarData.csv,
+ * May 2026 - Apr 2027) and filtered to dates from today onwards, so this
+ * page stays current automatically as the year progresses.
+ */
+type CalendarEvent = { date: Date; note: string; isHoliday: boolean };
+
+const parseCalendarEvents = (csv: string): CalendarEvent[] => {
+  const events: CalendarEvent[] = [];
+  // Academic year starts May 2026; a day number lower than the previous
+  // row's marks the start of the next month.
+  let month = 4;
+  let year = 2026;
+  let prevDay = 0;
+  for (const line of csv.trim().split("\n").slice(1)) {
+    const [dateStr, , ...rest] = line.split(",");
+    const day = parseInt(dateStr, 10);
+    if (isNaN(day)) continue;
+    if (day < prevDay) {
+      month++;
+      if (month > 11) {
+        month = 0;
+        year++;
+      }
+    }
+    prevDay = day;
+    const note = rest
+      .join(",")
+      .trim()
+      .replace(/^"|"$/g, "")
+      .replace(/,{2,}\s*/g, ": ")
+      .trim();
+    // Skip empty days and plain Sunday holidays
+    if (!note || note.toLowerCase() === "holiday") continue;
+    events.push({
+      date: new Date(year, month, day),
+      note,
+      isHoliday: note.toLowerCase().includes("holiday"),
+    });
+  }
+  return events;
+};
+
+const formatEventDate = (d: Date) =>
+  d.toLocaleDateString("en-IN", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+
+const formatShortDate = (d: Date) =>
+  d.toLocaleDateString("en-IN", { day: "numeric", month: "short" });
 
 const NewsEventsPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<"news" | "events">("news");
   const [activeCategory, setActiveCategory] = useState<string>("All");
   const [currentPage, setCurrentPage] = useState(1);
   const [filteredNews, setFilteredNews] = useState<NewsItem[]>([]);
+  const [calendarEvents, setCalendarEvents] = useState<CalendarEvent[]>([]);
   const itemsPerPage = 6;
+
+  useEffect(() => {
+    fetch("/calendarData.csv")
+      .then((r) => r.text())
+      .then((csv) => setCalendarEvents(parseCalendarEvents(csv)))
+      .catch((err) => console.error("Failed to load calendar events:", err));
+  }, []);
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const upcomingEvents = calendarEvents.filter((e) => e.date >= today);
 
   const categories = [
     "All",
@@ -417,55 +426,52 @@ const NewsEventsPage: React.FC = () => {
                 <h2 className="text-2xl font-bold mb-6">Upcoming Events</h2>
 
                 <div className="space-y-4">
-                  {upcomingEvents.map((event) => (
+                  {upcomingEvents.slice(0, 12).map((event) => (
                     <div
-                      key={event.id}
-                      className="bg-white rounded-lg shadow-md overflow-hidden"
+                      key={event.date.toISOString() + event.note}
+                      className="bg-white rounded-lg shadow-md overflow-hidden flex"
                     >
-                      <div className="w-full text-left">
-                        <div className="p-6 flex items-center justify-between">
-                          <div>
-                            <h3 className="text-xl font-bold">{event.title}</h3>
-                            <div className="text-gray-600 mt-1">
-                              {event.date}
-                            </div>
-                          </div>
-                          {/* <ChevronDown
-                            size={20}
-                            className={`transform transition-transform duration-300 ${
-                              expandedEvent === event.id ? "rotate-180" : ""
-                            }`}
-                          /> */}
+                      <div
+                        className={`w-20 flex-shrink-0 flex flex-col items-center justify-center text-white ${
+                          event.isHoliday ? "bg-red-500" : "bg-primary-900"
+                        }`}
+                      >
+                        <span className="text-2xl font-bold leading-none">
+                          {event.date.getDate()}
+                        </span>
+                        <span className="text-xs uppercase tracking-wide mt-1">
+                          {event.date.toLocaleDateString("en-IN", {
+                            month: "short",
+                          })}
+                        </span>
+                      </div>
+                      <div className="p-5">
+                        <h3 className="text-lg md:text-xl font-bold">
+                          {event.note}
+                        </h3>
+                        <div className="text-gray-600 mt-1 text-sm flex items-center">
+                          <Calendar size={14} className="mr-1.5" />
+                          {formatEventDate(event.date)}
+                          {event.isHoliday && (
+                            <span className="ml-3 bg-red-100 text-red-700 text-xs font-semibold px-2 py-0.5 rounded-full">
+                              Holiday
+                            </span>
+                          )}
                         </div>
                       </div>
-
-                      {/* <div
-                        className={`transition-all duration-300 ${
-                          expandedEvent === event.id ? "max-h-96" : "max-h-0"
-                        } overflow-hidden`}
-                      >
-                        <div className="px-6 pb-6 border-t border-gray-100 pt-4">
-                          <div className="grid grid-cols-2 gap-4 mb-4">
-                            <div>
-                              <div className="text-sm font-medium text-gray-500">
-                                Time
-                              </div>
-                              <div className="text-gray-900">{event.time}</div>
-                            </div>
-                            <div>
-                              <div className="text-sm font-medium text-gray-500">
-                                Location
-                              </div>
-                              <div className="text-gray-900">
-                                {event.location}
-                              </div>
-                            </div>
-                          </div>
-                          <p className="text-gray-700">{event.description}</p>
-                        </div>
-                      </div> */}
                     </div>
                   ))}
+                  {calendarEvents.length > 0 && upcomingEvents.length === 0 && (
+                    <p className="text-gray-500 bg-white rounded-lg shadow-md p-6">
+                      The current academic year has ended. The new calendar
+                      will be published soon.
+                    </p>
+                  )}
+                  {calendarEvents.length === 0 && (
+                    <p className="text-gray-500 bg-white rounded-lg shadow-md p-6">
+                      Loading events...
+                    </p>
+                  )}
                 </div>
               </div>
 
@@ -479,24 +485,24 @@ const NewsEventsPage: React.FC = () => {
                       Upcoming Important Dates
                     </h4>
                     <ul className="space-y-4">
-                      <li className="flex">
-                        <div className="bg-primary-100 text-primary-800 text-xs font-semibold px-2 py-1 rounded w-24 text-center mr-3 flex-shrink-0">
-                          July 28
-                        </div>
-                        <div>
-                          <p className="font-medium">
-                            Parent-Teacher Conferences
-                          </p>
-                        </div>
-                      </li>
-                      <li className="flex">
-                        <div className="bg-primary-100 text-primary-800 text-xs font-semibold px-2 py-1 rounded w-24 text-center mr-3 flex-shrink-0">
-                          August 15
-                        </div>
-                        <div>
-                          <p className="font-medium">Spring Concert</p>
-                        </div>
-                      </li>
+                      {upcomingEvents.slice(0, 6).map((event) => (
+                        <li
+                          key={event.date.toISOString() + event.note}
+                          className="flex"
+                        >
+                          <div className="bg-primary-100 text-primary-800 text-xs font-semibold px-2 py-1 rounded w-20 text-center mr-3 flex-shrink-0 self-start">
+                            {formatShortDate(event.date)}
+                          </div>
+                          <div>
+                            <p className="font-medium">{event.note}</p>
+                          </div>
+                        </li>
+                      ))}
+                      {upcomingEvents.length === 0 && (
+                        <li className="text-gray-500 text-sm">
+                          No upcoming dates.
+                        </li>
+                      )}
                     </ul>
                     <div className="mt-6">
                       <button className="w-full btn-outline">
