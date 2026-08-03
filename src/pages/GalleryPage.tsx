@@ -37,6 +37,10 @@ import aAcadReading from "/Gallery/album/academics-reading.jpg";
 import aEventsGraduation from "/Gallery/album/events-graduation.jpg";
 import aEventsWomensday from "/Gallery/album/events-womensday.jpg";
 import aEventsPrize from "/Gallery/album/events-prize.jpg";
+import aAcadLiteracy from "/Gallery/album/academics-literacy.jpg";
+import aAcadCraftclass from "/Gallery/album/academics-craftclass.jpg";
+import aEventsGathering from "/Gallery/album/events-gathering.jpg";
+import aEventsParents from "/Gallery/album/events-parents.jpg";
 
 const galleryItems: GalleryItem[] = [
   {
@@ -174,6 +178,38 @@ const galleryItems: GalleryItem[] = [
     title: "Prize Distribution",
     description:
       "Young achievers on the podium receiving their well-earned awards.",
+  },
+  {
+    id: "a17",
+    image: aAcadLiteracy,
+    category: "Academics",
+    title: "Early Literacy Classroom",
+    description:
+      "Bright, colourful classrooms where our youngest learners master their alphabet.",
+  },
+  {
+    id: "a18",
+    image: aAcadCraftclass,
+    category: "Academics",
+    title: "Activity-Based Learning",
+    description:
+      "Nursery students enjoying a hands-on craft activity with their teacher.",
+  },
+  {
+    id: "a19",
+    image: aEventsGathering,
+    category: "Events",
+    title: "Community Gathering",
+    description:
+      "Parents and families joining us for a school celebration.",
+  },
+  {
+    id: "a20",
+    image: aEventsParents,
+    category: "Events",
+    title: "Parents' Fun Games",
+    description:
+      "Parents participating in fun games during our school sports events.",
   },
   {
     id: "1",
