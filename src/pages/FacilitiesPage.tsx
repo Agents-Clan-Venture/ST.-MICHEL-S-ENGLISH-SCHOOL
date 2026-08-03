@@ -220,7 +220,7 @@ import f12 from "/Facilities/Security.png";
 import f13 from "/Facilities/Bus.png";
 import f14 from "/Facilities/BusTracking.png";
 import f15 from "/Facilities/Staff.jpg";
-import f16 from "/Gallery/album/academics-reading.jpg";
+import f16 from "/Facilities/PublicSpeaking.jpg";
 
 
 
