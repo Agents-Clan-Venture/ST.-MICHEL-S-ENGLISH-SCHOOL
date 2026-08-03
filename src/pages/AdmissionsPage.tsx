@@ -330,8 +330,11 @@ const AdmissionsPage: React.FC = () => {
 
           {/* Program selection */}
           <div className="max-w-4xl mx-auto mb-10">
-            <p className="text-center text-gray-600 mb-6">
-              Choose the program you are applying for
+            <p className="text-center text-gray-700 font-medium mb-1">
+              Step 1: Tap a program below to choose it
+            </p>
+            <p className="text-center text-sm text-gray-500 mb-6">
+              The application form will open once you select a program
             </p>
             <div
               role="radiogroup"
@@ -346,18 +349,29 @@ const AdmissionsPage: React.FC = () => {
                     type="button"
                     role="radio"
                     aria-checked={isSelected}
-                    onClick={() => setSelectedProgram(p.id)}
+                    onClick={() => {
+                      setSelectedProgram(p.id);
+                      setTimeout(() => {
+                        document
+                          .getElementById("apply-form")
+                          ?.scrollIntoView({ behavior: "smooth", block: "start" });
+                      }, 100);
+                    }}
                     className={`relative text-left p-6 rounded-lg border-2 transition-all duration-300 hover:shadow-lg ${
                       isSelected
                         ? "border-primary-900 bg-primary-50 shadow-md"
                         : "border-gray-200 bg-white hover:border-primary-300"
                     }`}
                   >
-                    {isSelected && (
-                      <span className="absolute top-4 right-4 w-6 h-6 rounded-full bg-primary-900 flex items-center justify-center">
-                        <Check size={14} className="text-white" />
-                      </span>
-                    )}
+                    <span
+                      className={`absolute top-4 right-4 w-6 h-6 rounded-full flex items-center justify-center border-2 ${
+                        isSelected
+                          ? "bg-primary-900 border-primary-900"
+                          : "border-gray-300 bg-white"
+                      }`}
+                    >
+                      {isSelected && <Check size={14} className="text-white" />}
+                    </span>
                     <p.icon size={32} className="text-accent mb-3" />
                     <h3 className="text-xl font-bold mb-1">{p.title}</h3>
                     <p className="text-sm font-medium text-primary-700 mb-4">
@@ -377,16 +391,38 @@ const AdmissionsPage: React.FC = () => {
                         </li>
                       ))}
                     </ul>
+                    <span
+                      className={`mt-5 inline-flex items-center justify-center w-full py-2.5 rounded-md font-medium text-sm transition-colors ${
+                        isSelected
+                          ? "bg-primary-900 text-white"
+                          : "bg-accent text-primary-900"
+                      }`}
+                    >
+                      {isSelected ? (
+                        <>
+                          <Check size={16} className="mr-1.5" /> Selected
+                        </>
+                      ) : (
+                        "Select & Apply"
+                      )}
+                    </span>
                   </button>
                 );
               })}
             </div>
           </div>
 
+          {!program && (
+            <p className="text-center text-gray-400 italic">
+              👆 Select a program above to open the application form
+            </p>
+          )}
+
           {program && (
           <div
             key={program.id}
-            className="max-w-3xl mx-auto bg-gray-50 p-8 rounded-lg animate-slide-up"
+            id="apply-form"
+            className="max-w-3xl mx-auto bg-gray-50 p-8 rounded-lg animate-slide-up scroll-mt-24"
           >
             <div className="mb-6 text-center">
               <h3 className="text-xl font-bold">{program.title} Application</h3>
