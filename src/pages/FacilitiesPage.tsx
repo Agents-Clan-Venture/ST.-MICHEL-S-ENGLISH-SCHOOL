@@ -220,6 +220,7 @@ import f12 from "/Facilities/Security.png";
 import f13 from "/Facilities/Bus.png";
 import f14 from "/Facilities/BusTracking.png";
 import f15 from "/Facilities/Staff.jpg";
+import f16 from "/Gallery/album/academics-reading.jpg";
 
 
 
@@ -270,6 +271,17 @@ const DepartmentsPage: React.FC = () => {
       description: "For physical development and recreational activities.",
       image: f5,
       features: ["Sports Activities", "Team Building", "Physical Fitness"],
+    },
+    {
+      title: "Public Speaking",
+      description:
+        "Building confidence and communication skills through daily assembly news reading, speeches, and presentations.",
+      image: f16,
+      features: [
+        "Confidence Building",
+        "Communication Skills",
+        "Stage Presence",
+      ],
     },
   ];
 

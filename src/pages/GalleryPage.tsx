@@ -40,6 +40,14 @@ import aEventsPrize from "/Gallery/album/events-prize.jpg";
 
 const galleryItems: GalleryItem[] = [
   {
+    id: "16",
+    image: g16,
+    category: "Academics",
+    title: "Best School Award in Academics",
+    description:
+      "St. Michel's receiving the Best School Award in Academic Achievement at the State FAP Awards.",
+  },
+  {
     id: "a1",
     image: aCampusBuilding,
     category: "Campus Life",
@@ -283,13 +291,6 @@ const galleryItems: GalleryItem[] = [
     description: "",
   },
   {
-    id: "16",
-    image: g16,
-    category: "Academics",
-    title: "Best School Award in Academics",
-    description: "",
-  },
-  {
     id: "17",
     image: g17,
     category: "Events",
@@ -376,22 +377,21 @@ const GalleryPage: React.FC = () => {
             ))}
           </div>
 
-          {/* Gallery Grid */}
+          {/* Gallery Grid: uniform tiles keep rows and edges clean */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredItems.map((item, index) => (
               <div
                 key={item.id}
                 className="group cursor-pointer relative overflow-hidden rounded-lg shadow-md animate-slide-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                style={{ animationDelay: `${Math.min(index, 8) * 0.08}s` }}
                 onClick={() => setSelectedItem(item)}
               >
-                <div className="aspect-w-4 aspect-h-3">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                </div>
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  loading="lazy"
+                  className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+                />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-primary-900/90 via-primary-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                   <span className="text-xs font-medium text-accent uppercase tracking-wider">
