@@ -221,6 +221,7 @@ import f13 from "/Facilities/Bus.png";
 import f14 from "/Facilities/BusTracking.png";
 import f15 from "/Facilities/Staff.jpg";
 import f16 from "/Facilities/PublicSpeaking.jpg";
+import f17 from "/Facilities/Faculty.jpg";
 
 
 
@@ -362,6 +363,17 @@ const DepartmentsPage: React.FC = () => {
         "40+ Teaching Staff and 30+ Non-Teaching Staff ensuring quality education and care.",
       image: f15,
       features: ["Trained Personnel", "Experienced Teachers", "Caring Staff"],
+    },
+    {
+      title: "Qualified Teaching Faculty",
+      description:
+        "Our uniformed teaching faculty brings decades of combined experience, with regular training to stay updated with modern teaching methods.",
+      image: f17,
+      features: [
+        "Qualified & Certified Teachers",
+        "Regular Teacher Training",
+        "Individual Student Attention",
+      ],
     },
   ];
 
