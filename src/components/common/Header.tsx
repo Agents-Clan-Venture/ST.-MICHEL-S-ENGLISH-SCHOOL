@@ -85,7 +85,7 @@ const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
       }`}
     >
       <div className="w-full px-4 lg:px-6 flex items-center justify-between">
-        <div className="flex items-center">
+        <div className="flex items-center flex-1">
         <Link
           to="/"
           className={`flex items-center space-x-2 ${
@@ -115,7 +115,7 @@ const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
           </div>
         </Link>
 
-        <nav className="hidden xl:flex items-center space-x-4 2xl:space-x-6 ml-8 2xl:ml-16">
+        <nav className="hidden xl:flex flex-1 items-center justify-evenly ml-4">
           {navItems.map((item) => (
             <div
               key={item.label}

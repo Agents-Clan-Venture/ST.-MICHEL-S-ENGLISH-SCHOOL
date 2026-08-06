@@ -1,14 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import {
-  FileText,
-  BadgeCheck,
-  Hash,
-  MapPin,
-  User,
-  Mail,
-  Phone,
-} from "lucide-react";
+import { FileText } from "lucide-react";
 
 type Row = {
   info: string;
@@ -213,65 +205,49 @@ const MandatoryDisclosurePage: React.FC = () => {
 
       <section className="section bg-white">
         <div className="container max-w-5xl">
-          {/* School summary card */}
-          <div className="mb-14 rounded-xl overflow-hidden shadow-lg border border-gray-200">
-            <div className="bg-primary-900 px-6 md:px-8 py-6">
-              <h2 className="text-2xl md:text-3xl font-bold text-white">
-                St. Michel's English School
-              </h2>
-              <p className="text-accent font-semibold mt-1">
-                School at a Glance
-              </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-6 px-6 md:px-8 py-8 bg-white">
-              {[
-                {
-                  icon: BadgeCheck,
-                  label: "CBSE Affiliation Status",
-                  value:
-                    "Applied for CBSE Affiliation (Application No. Aff2627-00138-KY)",
-                },
-                {
-                  icon: Hash,
-                  label: "School Code",
-                  value: "29320822701",
-                },
-                {
-                  icon: MapPin,
-                  label: "Complete Address with Pin Code",
-                  value:
-                    "Mysore Road, Kanakapura - 562 117, Bengaluru South District, Karnataka",
-                },
-                {
-                  icon: User,
-                  label: "Principal / Headmistress",
-                  value: "Mrs. Vasanthamma K, M.Sc., B.Ed",
-                },
-                {
-                  icon: Mail,
-                  label: "School Mail ID",
-                  value: "st.michelsenglishschool@gmail.com",
-                },
-                {
-                  icon: Phone,
-                  label: "Contact Numbers",
-                  value: "9606999924 | 81972 92244 | 99026 99638",
-                },
-              ].map(({ icon: Icon, label, value }) => (
-                <div key={label} className="flex items-start gap-4">
-                  <div className="shrink-0 w-11 h-11 rounded-full bg-primary-50 text-primary-900 flex items-center justify-center">
-                    <Icon size={20} />
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold uppercase tracking-wide text-gray-500">
-                      {label}
-                    </p>
-                    <p className="text-gray-800 font-medium mt-0.5 break-words">
-                      {value}
-                    </p>
-                  </div>
-                </div>
-              ))}
+          {/* School at a Glance */}
+          <div className="mb-14">
+            <h2 className="text-2xl md:text-3xl font-bold text-primary-900 mb-6 uppercase tracking-wide">
+              School at a Glance
+            </h2>
+            <div className="overflow-x-auto rounded-lg shadow-md border border-gray-300">
+              <table className="w-full text-left text-sm md:text-base">
+                <tbody>
+                  {[
+                    ["Name of The School", "St. Michel's English School"],
+                    [
+                      "CBSE Affiliation Status",
+                      "Applied for CBSE Affiliation (Application No. Aff2627-00138-KY)",
+                    ],
+                    ["School Code", "29320822701"],
+                    [
+                      "Complete Address with Pin Code",
+                      "Mysore Road, Kanakapura - 562 117, Bengaluru South District, Karnataka",
+                    ],
+                    [
+                      "Principal / Headmistress",
+                      "Mrs. Vasanthamma K, M.Sc., B.Ed",
+                    ],
+                    ["School Mail ID", "st.michelsenglishschool@gmail.com"],
+                    [
+                      "Contact Numbers",
+                      "9606999924 | 81972 92244 | 99026 99638",
+                    ],
+                  ].map(([label, value], i) => (
+                    <tr
+                      key={label}
+                      className={i % 2 === 0 ? "bg-white" : "bg-gray-100"}
+                    >
+                      <td className="px-4 md:px-6 py-4 font-semibold uppercase tracking-wide text-gray-700 align-top md:w-2/5 border-r border-gray-300">
+                        {label}
+                      </td>
+                      <td className="px-4 md:px-6 py-4 text-gray-800 align-top">
+                        {value}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
 
