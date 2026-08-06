@@ -32,14 +32,14 @@ const navItems: NavItem[] = [
     ],
   },
   { label: "Facilities", path: "/facilities" },
-  {
-    label: "Mandatory Public Disclosure",
-    path: "/mandatory-public-disclosure",
-  },
   { label: "Rules & Regulations", path: "/rules&reg" },
   { label: "Gallery", path: "/gallery" },
   { label: "News & Events", path: "/news-events" },
   { label: "Contact", path: "/contact" },
+  {
+    label: "Mandatory Public Disclosure",
+    path: "/mandatory-public-disclosure",
+  },
 ];
 
 const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
@@ -114,7 +114,7 @@ const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
           </div>
         </Link>
 
-        <nav className="hidden lg:flex items-center space-x-6">
+        <nav className="hidden lg:flex items-center space-x-4 xl:space-x-5">
           {navItems.map((item) => (
             <div
               key={item.label}
@@ -125,7 +125,7 @@ const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
               <NavLink
                 to={item.path}
                 className={({ isActive }) =>
-                  `text-sm font-medium transition-colors duration-300 flex items-center ${
+                  `text-[13px] xl:text-sm font-medium whitespace-nowrap transition-colors duration-300 flex items-center ${
                     isActive
                       ? "text-accent"
                       : isScrolled
