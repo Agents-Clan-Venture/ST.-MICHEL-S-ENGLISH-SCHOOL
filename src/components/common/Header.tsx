@@ -115,7 +115,7 @@ const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
           </div>
         </Link>
 
-        <nav className="hidden xl:flex items-center space-x-4 2xl:space-x-5 ml-6 2xl:ml-10">
+        <nav className="hidden xl:flex items-center space-x-4 2xl:space-x-6 ml-8 2xl:ml-16">
           {navItems.map((item) => (
             <div
               key={item.label}
@@ -126,7 +126,7 @@ const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
               <NavLink
                 to={item.path}
                 className={({ isActive }) =>
-                  `text-sm font-medium whitespace-nowrap transition-colors duration-300 flex items-center ${
+                  `text-sm 2xl:text-base font-medium whitespace-nowrap transition-colors duration-300 flex items-center ${
                     isActive
                       ? "text-accent"
                       : isScrolled
