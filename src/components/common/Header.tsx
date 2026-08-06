@@ -85,6 +85,7 @@ const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
       }`}
     >
       <div className="w-full px-4 lg:px-6 flex items-center justify-between">
+        <div className="flex items-center">
         <Link
           to="/"
           className={`flex items-center space-x-2 ${
@@ -114,7 +115,7 @@ const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
           </div>
         </Link>
 
-        <nav className="hidden xl:flex items-center space-x-3 2xl:space-x-5 xl:mr-8">
+        <nav className="hidden xl:flex items-center space-x-4 2xl:space-x-5 ml-6 2xl:ml-10">
           {navItems.map((item) => (
             <div
               key={item.label}
@@ -125,7 +126,7 @@ const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
               <NavLink
                 to={item.path}
                 className={({ isActive }) =>
-                  `text-[13px] 2xl:text-sm font-medium whitespace-nowrap transition-colors duration-300 flex items-center ${
+                  `text-sm font-medium whitespace-nowrap transition-colors duration-300 flex items-center ${
                     isActive
                       ? "text-accent"
                       : isScrolled
@@ -167,6 +168,7 @@ const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
             </div>
           ))}
         </nav>
+        </div>
 
         <button
           className={`xl:hidden ${
