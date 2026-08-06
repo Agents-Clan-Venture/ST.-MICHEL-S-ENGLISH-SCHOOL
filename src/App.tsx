@@ -16,6 +16,7 @@ import GalleryPage from "./pages/GalleryPage";
 import NewsEventsPage from "./pages/NewsEventsPage";
 import ContactPage from "./pages/ContactPage";
 import PTAPage from "./pages/PTAPage";
+import MandatoryDisclosurePage from "./pages/MandatoryDisclosurePage";
 import NotFoundPage from "./pages/NotFoundPage";
 import FloatingWhatsApp from "./components/common/FloatingWhatsApp";
 
@@ -27,6 +28,10 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="pta" element={<PTAPage />} />
+          <Route
+            path="mandatory-public-disclosure"
+            element={<MandatoryDisclosurePage />}
+          />
           <Route path="admissions" element={<AdmissionsPage />} />
           <Route path="academics" element={<AcademicsPage />} />
           <Route path="facilities" element={<FacilitiesPage />} />

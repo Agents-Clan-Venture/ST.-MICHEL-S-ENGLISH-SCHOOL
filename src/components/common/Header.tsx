@@ -32,6 +32,10 @@ const navItems: NavItem[] = [
     ],
   },
   { label: "Facilities", path: "/facilities" },
+  {
+    label: "Mandatory Public Disclosure",
+    path: "/mandatory-public-disclosure",
+  },
   { label: "Rules & Regulations", path: "/rules&reg" },
   { label: "Gallery", path: "/gallery" },
   { label: "News & Events", path: "/news-events" },
