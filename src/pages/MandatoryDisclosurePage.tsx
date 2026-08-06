@@ -1,6 +1,14 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FileText } from "lucide-react";
+import {
+  FileText,
+  BadgeCheck,
+  Hash,
+  MapPin,
+  User,
+  Mail,
+  Phone,
+} from "lucide-react";
 
 type Row = {
   info: string;
@@ -205,33 +213,66 @@ const MandatoryDisclosurePage: React.FC = () => {
 
       <section className="section bg-white">
         <div className="container max-w-5xl">
-          {/* School summary block */}
-          <div className="mb-14 space-y-2 text-gray-800 text-base md:text-lg">
-            <p>
-              <strong>Name of the school</strong> - St. Michel's English School
-            </p>
-            <p>
-              <strong>Affiliation No. (If Applicable)</strong> - Applied for
-              CBSE Affiliation (Application No. Aff2627-00138-KY)
-            </p>
-            <p>
-              <strong>Complete Address With Pin Code:</strong> Mysore Road,
-              Kanakapura - 562 117, Bengaluru South District, Karnataka
-            </p>
-            <p>
-              <strong>School code</strong> 29320822701
-            </p>
-            <p>
-              <strong>Name of the principal</strong> - Mrs. Vasanthamma K
-              <br />
-              Qualification M.Sc., B.Ed
-            </p>
-            <p>
-              <strong>School Mail ID</strong> st.michelsenglishschool@gmail.com
-            </p>
-            <p>
-              <strong>Contact no</strong> 9606999924 | 81972 92244 | 99026 99638
-            </p>
+          {/* School summary card */}
+          <div className="mb-14 rounded-xl overflow-hidden shadow-lg border border-gray-200">
+            <div className="bg-primary-900 px-6 md:px-8 py-6">
+              <h2 className="text-2xl md:text-3xl font-bold text-white">
+                St. Michel's English School
+              </h2>
+              <p className="text-accent font-semibold mt-1">
+                School at a Glance
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-6 px-6 md:px-8 py-8 bg-white">
+              {[
+                {
+                  icon: BadgeCheck,
+                  label: "CBSE Affiliation Status",
+                  value:
+                    "Applied for CBSE Affiliation (Application No. Aff2627-00138-KY)",
+                },
+                {
+                  icon: Hash,
+                  label: "School Code",
+                  value: "29320822701",
+                },
+                {
+                  icon: MapPin,
+                  label: "Complete Address with Pin Code",
+                  value:
+                    "Mysore Road, Kanakapura - 562 117, Bengaluru South District, Karnataka",
+                },
+                {
+                  icon: User,
+                  label: "Principal / Headmistress",
+                  value: "Mrs. Vasanthamma K, M.Sc., B.Ed",
+                },
+                {
+                  icon: Mail,
+                  label: "School Mail ID",
+                  value: "st.michelsenglishschool@gmail.com",
+                },
+                {
+                  icon: Phone,
+                  label: "Contact Numbers",
+                  value: "9606999924 | 81972 92244 | 99026 99638",
+                },
+              ].map(({ icon: Icon, label, value }) => (
+                <div key={label} className="flex items-start gap-4">
+                  <div className="shrink-0 w-11 h-11 rounded-full bg-primary-50 text-primary-900 flex items-center justify-center">
+                    <Icon size={20} />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold uppercase tracking-wide text-gray-500">
+                      {label}
+                    </p>
+                    <p className="text-gray-800 font-medium mt-0.5 break-words">
+                      {value}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
           <DisclosureTable
