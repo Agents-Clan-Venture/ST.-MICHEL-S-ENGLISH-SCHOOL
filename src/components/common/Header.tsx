@@ -114,7 +114,7 @@ const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
           </div>
         </Link>
 
-        <nav className="hidden lg:flex items-center space-x-3 2xl:space-x-5">
+        <nav className="hidden xl:flex items-center space-x-3 2xl:space-x-5 xl:mr-8">
           {navItems.map((item) => (
             <div
               key={item.label}
@@ -169,7 +169,7 @@ const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
         </nav>
 
         <button
-          className={`lg:hidden ${
+          className={`xl:hidden ${
             isScrolled ? "text-gray-800" : "text-white"
           } hover:text-accent focus:outline-none`}
           onClick={toggleMobileMenu}
@@ -180,7 +180,7 @@ const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
       </div>
 
       <div
-        className={`lg:hidden fixed inset-0 bg-white z-40 transition-transform duration-300 transform ${
+        className={`xl:hidden fixed inset-0 bg-white z-40 transition-transform duration-300 transform ${
           mobileMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
