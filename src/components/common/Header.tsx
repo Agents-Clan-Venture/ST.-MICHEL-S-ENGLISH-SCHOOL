@@ -84,7 +84,7 @@ const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
         isScrolled ? "bg-white shadow-md py-3" : "bg-transparent py-5"
       }`}
     >
-      <div className="container flex items-center justify-between">
+      <div className="w-full px-4 lg:px-6 flex items-center justify-between">
         <Link
           to="/"
           className={`flex items-center space-x-2 ${
@@ -98,7 +98,7 @@ const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
           />
           <div>
             <h1
-              className={`text-base font-bold ${
+              className={`text-base lg:text-sm 2xl:text-base font-bold lg:whitespace-nowrap ${
                 isScrolled ? "text-primary-900" : "text-white"
               }`}
             >
@@ -114,7 +114,7 @@ const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
           </div>
         </Link>
 
-        <nav className="hidden lg:flex items-center space-x-4 xl:space-x-5">
+        <nav className="hidden lg:flex items-center space-x-3 2xl:space-x-5">
           {navItems.map((item) => (
             <div
               key={item.label}
@@ -125,7 +125,7 @@ const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
               <NavLink
                 to={item.path}
                 className={({ isActive }) =>
-                  `text-[13px] xl:text-sm font-medium whitespace-nowrap transition-colors duration-300 flex items-center ${
+                  `text-[13px] 2xl:text-sm font-medium whitespace-nowrap transition-colors duration-300 flex items-center ${
                     isActive
                       ? "text-accent"
                       : isScrolled
