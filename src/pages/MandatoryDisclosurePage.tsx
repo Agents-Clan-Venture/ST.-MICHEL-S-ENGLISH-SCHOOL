@@ -43,6 +43,10 @@ const documents: Row[] = [
     doc: "/disclosure/society-trust-deed.pdf",
   },
   {
+    info: "Copy of Society Registration Renewal Certificate (2026-27)",
+    doc: "/disclosure/society-renewal-certificate.pdf",
+  },
+  {
     info: "Copy of No Objection Certificate (NOC) Issued, by The State Govt. /UT",
     detail: "To be uploaded",
   },
@@ -56,7 +60,7 @@ const documents: Row[] = [
   },
   {
     info: "Copies of Valid Fire Safety Certificate Issued by the Competent Authority",
-    detail: "To be uploaded",
+    doc: "/disclosure/fire-safety-certificate.pdf",
   },
   {
     info: "Copies of Valid Water, Health And Sanitation Certificates",
@@ -66,7 +70,7 @@ const documents: Row[] = [
     info: "Copies of Land Certificates",
     doc: "/disclosure/land-certificate.pdf",
   },
-  { info: "Self Declaration", detail: "To be uploaded" },
+  { info: "Self Declaration", doc: "/disclosure/self-declaration.pdf" },
 ];
 
 const academics: Row[] = [
