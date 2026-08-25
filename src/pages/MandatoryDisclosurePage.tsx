@@ -116,7 +116,7 @@ const infrastructure: Row[] = [
   { info: "No. of Boys Toilets", detail: "21" },
   {
     info: "Link of YouTube Video of The Inspection of School Covering The Infrastructure of The School",
-    detail: "To be uploaded",
+    doc: "https://youtu.be/dF653co7DUo?si=o-MdXQ28cdv8XqSa",
   },
 ];
 
@@ -130,7 +130,7 @@ const DocLink: React.FC<{ row: Row }> = ({ row }) => {
         className="inline-flex items-center gap-1.5 text-primary-700 font-semibold hover:text-accent transition-colors"
       >
         <FileText size={16} />
-        View Document
+        {row.doc.includes("youtu") ? "Watch Video" : "View Document"}
       </a>
     );
   }
@@ -177,7 +177,7 @@ const DisclosureTable: React.FC<{
               <td className="px-4 py-4 text-gray-600 align-top">{i + 1}</td>
               <td className="px-4 py-4 text-gray-800 align-top">{row.info}</td>
               <td className="px-4 py-4 align-top">
-                {showDetail ? (
+                {showDetail && !row.doc ? (
                   <span className="text-gray-700 whitespace-pre-line">
                     {row.detail}
                   </span>
