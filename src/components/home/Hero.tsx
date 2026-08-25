@@ -26,7 +26,7 @@ const slides: HeroSlide[] = [
   },
   {
     id: 2,
-    image: `${import.meta.env.BASE_URL}Home/slide.jpg`,
+    image: `${import.meta.env.BASE_URL}Home/sslc-toppers.jpg`,
     title: "Discover Our Programs",
     subtitle: "Comprehensive Education for Tomorrow's Leaders",
     cta: {
