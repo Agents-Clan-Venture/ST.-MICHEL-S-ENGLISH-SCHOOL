@@ -23,7 +23,7 @@ const generalInfo: Row[] = [
   },
   {
     info: "Principal Name & Qualification",
-    detail: "Mrs. Vasanthamma K, M.Sc., B.Ed",
+    detail: "Mrs. Vasanthamma K, M.Sc., B.ED",
   },
   { info: "School E-mail Id", detail: "st.michelsenglishschool@gmail.com" },
   { info: "School Website", detail: "www.stmichelsschool.org" },
@@ -94,7 +94,7 @@ const academics: Row[] = [
 ];
 
 const staff: Row[] = [
-  { info: "Principal / Headmistress", detail: "Mrs. Vasanthamma K, M.Sc., B.Ed" },
+  { info: "Principal / Headmistress", detail: "Mrs. Vasanthamma K, M.Sc., B.ED" },
   { info: "Total No. of Teachers (PGT / TGT / PRT)", detail: "To be updated" },
   { info: "Teachers Section Ratio", detail: "To be updated" },
   { info: "Details of Special Educator", detail: "To be updated" },
@@ -238,7 +238,7 @@ const MandatoryDisclosurePage: React.FC = () => {
                     ],
                     [
                       "Principal / Headmistress",
-                      "Mrs. Vasanthamma K, M.Sc., B.Ed",
+                      "Mrs. Vasanthamma K, M.Sc., B.ED",
                     ],
                     ["School Mail ID", "st.michelsenglishschool@gmail.com"],
                     [

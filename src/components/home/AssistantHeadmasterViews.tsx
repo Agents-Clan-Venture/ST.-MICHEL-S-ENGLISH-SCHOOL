@@ -48,7 +48,7 @@ const AssistantHeadmasterViews: React.FC = () => {
               <div className="flex items-center mb-8">
                 <div>
                   <h4 className="font-semibold text-lg">SRI MADHU KUMAR B V</h4>
-                  <p className="text-gray-600">B.A., B.Ed (English)</p>
+                  <p className="text-gray-600">B.A., B.ED (English)</p>
                   <p className="text-gray-600">Assistant Headmaster</p>
                 </div>
               </div>

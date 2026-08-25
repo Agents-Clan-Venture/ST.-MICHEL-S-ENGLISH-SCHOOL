@@ -69,7 +69,7 @@ const boardMembersVision = [
     imgPath: vasantama,
     scale: 1.6,
     desig: `Head Mistress 
-Msc, B.Ed`,
+Msc, B.ED`,
     quote:
       "Knowledge is power. Information is liberating. Education is the premise of progress,in every society, in every family.",
     message:
@@ -104,21 +104,21 @@ const deptStaff = [
     name: "Gundamma K.T",
     imgPath: gundama,
     dept: "Book Section",
-    qualification: "P.U.C, D.Ed",
+    qualification: "P.U.C, D.ED",
     exp: "36 years experience in Hindi",
   },
   {
     name: "Gulnaz.G",
     imgPath: gulnaz,
     dept: "Uniform Section",
-    qualification: "M.A, B.Ed",
+    qualification: "M.A, B.ED",
     exp: "21 years experience in English",
   },
   {
     name: "Lakshmi.K",
     imgPath: lakshmi,
     dept: "Admission Section",
-    qualification: "B.A, D.Ed",
+    qualification: "B.A, D.ED",
     exp: "16 years experience in Social Science",
   },
 ];
