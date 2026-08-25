@@ -103,12 +103,13 @@ const infrastructure: Row[] = [
   { info: "Total Campus Area of The School (In Square Mtr)", detail: "6276.74 Sq Mt" },
   {
     info: "No. and Size of The Class Rooms (In Sq Mtr)",
-    detail: "19 (Running Classrooms) - 41.8 Sq Mt each; 2 (Vacant Classrooms) - 41.8 Sq Mt each",
+    detail:
+      "19 (Running Classrooms) - 41.8 Sq Mt\n2 (Vacant Classrooms) - 41.8 Sq Mt",
   },
   {
     info: "No. and Size of Laboratories Including Computer Labs (In Sq Mtr)",
     detail:
-      "2 (Composite Lab) - 41.8 Sq Mt; 1 (Computer Lab) - 83.61 Sq Mt; 1 (Mathematics Lab) - 41.8 Sq Mt; 1 (Science Lab) - 83.61 Sq Mt; 1 (Library) - 129.22 Sq Mt",
+      "2 (Composite Lab) - 41.8 Sq Mt\n1 (Computer Lab) - 83.61 Sq Mt\n1 (Mathematics Lab) - 41.8 Sq Mt\n1 (Science Lab) - 83.61 Sq Mt\n1 (Library) - 129.22 Sq Mt",
   },
   { info: "Internet Facility (Y/N)", detail: "Yes" },
   { info: "No. of Girls Toilets", detail: "18" },
@@ -177,7 +178,9 @@ const DisclosureTable: React.FC<{
               <td className="px-4 py-4 text-gray-800 align-top">{row.info}</td>
               <td className="px-4 py-4 align-top">
                 {showDetail ? (
-                  <span className="text-gray-700">{row.detail}</span>
+                  <span className="text-gray-700 whitespace-pre-line">
+                    {row.detail}
+                  </span>
                 ) : (
                   <DocLink row={row} />
                 )}
