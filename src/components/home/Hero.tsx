@@ -36,7 +36,7 @@ const slides: HeroSlide[] = [
   },
   {
     id: 3,
-    image: `${import.meta.env.BASE_URL}Home/af44.jpg`,
+    image: `${import.meta.env.BASE_URL}Home/annual-day-45.jpg`,
     title: "Join Our Community",
     subtitle: "A Supportive Environment for Every Student",
     cta: {
