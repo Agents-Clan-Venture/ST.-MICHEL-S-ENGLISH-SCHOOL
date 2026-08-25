@@ -95,13 +95,8 @@ const academics: Row[] = [
 
 const staff: Row[] = [
   { info: "Principal / Headmistress", detail: "Mrs. Vasanthamma K, M.Sc., B.ED" },
-  { info: "Total No. of Teachers (PGT / TGT / PRT)", detail: "To be updated" },
-  { info: "Teachers Section Ratio", detail: "To be updated" },
-  { info: "Details of Special Educator", detail: "To be updated" },
-  {
-    info: "Details of Counsellor and Wellness Teacher",
-    detail: "To be updated",
-  },
+  { info: "Total No. of Teachers (PGT / TGT / PRT)", detail: "37" },
+  { info: "Teachers Section Ratio", detail: "2:1" },
 ];
 
 const infrastructure: Row[] = [

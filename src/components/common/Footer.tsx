@@ -39,13 +39,17 @@ const Footer: React.FC = () => {
                 href="https://www.facebook.com/share/1EUKC8yArG/"
                 className="text-gray-300 hover:text-accent transition-colors"
                 aria-label="Facebook"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Facebook size={20} />
               </a>
               <a
                 href="https://youtube.com/@st.michelsenglishschoolkan7277?feature=shared"
                 className="text-gray-300 hover:text-accent transition-colors"
-                aria-label="Twitter"
+                aria-label="YouTube"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Youtube size={20} />
               </a>
@@ -53,6 +57,8 @@ const Footer: React.FC = () => {
                 href="https://www.instagram.com/st.michels.kanakapura?igsh=MW9uMDFhNnV2dDYycA=="
                 className="text-gray-300 hover:text-accent transition-colors"
                 aria-label="Instagram"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Instagram size={20} />
               </a>
