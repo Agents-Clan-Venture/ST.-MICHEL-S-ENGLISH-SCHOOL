@@ -85,7 +85,7 @@ const academics: Row[] = [
   },
   {
     info: "List of Parents Teachers Association (PTA) Members",
-    link: "/pta",
+    doc: "/disclosure/pta-members-list.pdf",
   },
   {
     info: "Last Three-Year Result of The Board Examination as per Applicability",
