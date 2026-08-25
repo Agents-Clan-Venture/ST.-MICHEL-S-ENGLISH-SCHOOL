@@ -109,7 +109,33 @@ const programs = [
 
 const AdmissionsPage: React.FC = () => {
   const [selectedProgram, setSelectedProgram] = useState<string | null>(null);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "sending" | "sent" | "error"
+  >("idle");
   const program = programs.find((p) => p.id === selectedProgram);
+
+  const handleApplySubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form).entries());
+    delete data.terms;
+    setSubmitStatus("sending");
+    try {
+      const res = await fetch(
+        "https://hook.us2.make.com/t51dcdty7meu3sxp2s1r6a2fqklk1piy",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ formType: "admission", ...data }),
+        }
+      );
+      if (!res.ok) throw new Error(`Webhook responded ${res.status}`);
+      setSubmitStatus("sent");
+      form.reset();
+    } catch {
+      setSubmitStatus("error");
+    }
+  };
 
   useEffect(() => {
     document.title = "Admissions | St. Michel's";
@@ -427,7 +453,7 @@ const AdmissionsPage: React.FC = () => {
             <div className="mb-6 text-center">
               <h3 className="text-xl font-bold">{program.title} Application</h3>
             </div>
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleApplySubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label
@@ -588,9 +614,26 @@ const AdmissionsPage: React.FC = () => {
               </div>
 
               <div>
-                <button type="submit" className="btn-primary w-full md:w-auto">
-                  Submit Application
+                <button
+                  type="submit"
+                  disabled={submitStatus === "sending"}
+                  className="btn-primary w-full md:w-auto disabled:opacity-60"
+                >
+                  {submitStatus === "sending"
+                    ? "Submitting..."
+                    : "Submit Application"}
                 </button>
+                {submitStatus === "sent" && (
+                  <p className="mt-3 text-green-700 font-medium">
+                    Application submitted successfully. Our admissions team will
+                    contact you soon.
+                  </p>
+                )}
+                {submitStatus === "error" && (
+                  <p className="mt-3 text-red-600 font-medium">
+                    Something went wrong. Please try again or call us directly.
+                  </p>
+                )}
               </div>
             </form>
           </div>

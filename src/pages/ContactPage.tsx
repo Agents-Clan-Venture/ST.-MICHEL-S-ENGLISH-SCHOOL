@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
-import emailjs from "@emailjs/browser";
 
 const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -23,8 +22,6 @@ const ContactPage: React.FC = () => {
 
   useEffect(() => {
     document.title = "Contact Us | St. Michel's";
-    // Initialize EmailJS
-    emailjs.init("YOUR_PUBLIC_KEY");
   }, []);
 
   const handleChange = (
@@ -66,14 +63,15 @@ const ContactPage: React.FC = () => {
     setFormError(null);
 
     try {
-      await emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
-        from_name: formData.name,
-        from_email: formData.email,
-        phone: formData.phone,
-        subject: formData.subject,
-        message: formData.message,
-        to_email: "workp1407@gmail.com",
-      });
+      const res = await fetch(
+        "https://hook.us2.make.com/t51dcdty7meu3sxp2s1r6a2fqklk1piy",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ formType: "contact", ...formData }),
+        }
+      );
+      if (!res.ok) throw new Error(`Webhook responded ${res.status}`);
 
       setFormSubmitted(true);
       setFormData({
