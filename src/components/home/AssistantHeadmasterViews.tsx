@@ -1,6 +1,6 @@
 import React from "react";
-import assistantHeadmaster from "/Home/ahm1.png"; // Update this path to your actual image
-import ahm2 from "/Home/ahm2.png"
+import assistantHeadmaster from "/Home/ahm1.jpg"; // Update this path to your actual image
+import ahm2 from "/Home/ahm2.jpg"
 
 const AssistantHeadmasterViews: React.FC = () => {
   return (
@@ -58,7 +58,7 @@ const AssistantHeadmasterViews: React.FC = () => {
           {/* Right side - Image */}
           <div className="animate-slide-up" style={{ animationDelay: "0.2s" }}>
             <div className="relative max-w-md mx-auto">
-              <img
+              <img loading="lazy" decoding="async"
                 src={assistantHeadmaster}
                 alt="Assistant Headmaster of St. Michel's"
                 className="rounded-lg shadow-xl w-full h-auto object-cover"
@@ -75,7 +75,7 @@ const AssistantHeadmasterViews: React.FC = () => {
           {/* Left side - Image */}
           <div className="animate-slide-up">
             <div className="relative max-w-md mx-auto">
-              <img
+              <img loading="lazy" decoding="async"
                 src={ahm2}
                 alt="Assistant Headmaster of St. Michel's"
                 className="rounded-lg shadow-xl w-full h-auto object-cover"

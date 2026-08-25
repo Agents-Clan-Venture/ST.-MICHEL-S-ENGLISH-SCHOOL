@@ -78,7 +78,7 @@ const News: React.FC = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="relative overflow-hidden h-48">
-                <img 
+                <img loading="lazy" decoding="async" 
                   src={item.image} 
                   alt={item.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"

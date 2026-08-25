@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <Link to="/" className="flex items-center space-x-2 mb-4">
-              <img src={logo} className="w-12" alt="logo-footer" />
+              <img loading="lazy" decoding="async" src={logo} className="w-12" alt="logo-footer" />
               <div>
                 <h3 className="text-xl font-bold text-accent">
                   St. Michel's English School

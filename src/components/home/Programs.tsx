@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BookOpen, Award, Users, Lightbulb } from 'lucide-react';
-import Students from "/Home/Home_JOC.png"
+import Students from "/Home/Home_JOC.jpg"
 
 interface Program {
   icon: React.ReactNode;
@@ -84,7 +84,7 @@ const Programs: React.FC = () => {
               </div>
             </div>
             <div className="relative h-64 lg:h-auto">
-              <img 
+              <img loading="lazy" decoding="async" 
                 src={Students}
                 alt="Students walking on campus" 
                 className="absolute inset-0 w-full h-full object-cover"

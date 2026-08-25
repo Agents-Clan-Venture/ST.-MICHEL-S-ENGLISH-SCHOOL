@@ -10,7 +10,7 @@ const Welcome: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="animate-slide-up">
             <div className="relative flex justify-center">
-              <img
+              <img loading="lazy" decoding="async"
                 src={`${import.meta.env.BASE_URL}Home/hm.jpg`}
                 alt="Principal of St. Michel's"
                 className="rounded-lg shadow-xl max-w-full h-auto object-cover"

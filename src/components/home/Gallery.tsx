@@ -2,12 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { GalleryItem } from '../../types';
-import h1 from "/Home/Gallery/hg1.png"
-import h2 from "/Home/Gallery/hg2.png"
-import h3 from "/Home/Gallery/hg3.png"
-import h4 from "/Home/Gallery/hg4.png"
-import h5 from "/Home/Gallery/hg5.png"
-import h6 from "/Home/Gallery/hg6.png"
+import h1 from "/Home/Gallery/hg1.jpg"
+import h2 from "/Home/Gallery/hg2.jpg"
+import h3 from "/Home/Gallery/hg3.jpg"
+import h4 from "/Home/Gallery/hg4.jpg"
+import h5 from "/Home/Gallery/hg5.jpg"
+import h6 from "/Home/Gallery/hg6.jpg"
 
 const galleryItems: GalleryItem[] = [
   {
@@ -65,7 +65,7 @@ const Gallery: React.FC = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="aspect-w-4 aspect-h-3">
-                <img 
+                <img loading="lazy" decoding="async" 
                   src={item.image} 
                   alt={item.title} 
                   className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"

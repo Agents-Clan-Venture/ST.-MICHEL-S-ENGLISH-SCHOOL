@@ -77,7 +77,7 @@ const AcademicsPage: React.FC = () => {
               </div>
             </div>
             <div className="relative animate-slide-up">
-              <img
+              <img loading="lazy" decoding="async"
                 src={img}
                 alt="Students in classroom"
                 className="rounded-lg shadow-2xl"

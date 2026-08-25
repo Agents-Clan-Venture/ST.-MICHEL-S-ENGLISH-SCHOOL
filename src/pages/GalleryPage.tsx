@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { GalleryItem } from "../types";
-import g1 from "/Gallery/g1.png";
-import g2 from "/Gallery/g2.png";
-import g3 from "/Gallery/g3.png";
-import g4 from "/Gallery/g4.png";
-import g5 from "/Gallery/g5.png";
-import g6 from "/Gallery/g6.png";
-import g7 from "/Gallery/g7.png";
-import g8 from "/Gallery/g8.png";
-import g9 from "/Gallery/g9.png";
-import g10 from "/Gallery/g10.png";
-import g11 from "/Gallery/Physical.png";
-import g12 from "/Gallery/Focus.png";
+import g1 from "/Gallery/g1.jpg";
+import g2 from "/Gallery/g2.jpg";
+import g3 from "/Gallery/g3.jpg";
+import g4 from "/Gallery/g4.jpg";
+import g5 from "/Gallery/g5.jpg";
+import g6 from "/Gallery/g6.jpg";
+import g7 from "/Gallery/g7.jpg";
+import g8 from "/Gallery/g8.jpg";
+import g9 from "/Gallery/g9.jpg";
+import g10 from "/Gallery/g10.jpg";
+import g11 from "/Gallery/Physical.jpg";
+import g12 from "/Gallery/Focus.jpg";
 import g13 from "/Gallery/Kids_Play_Area.jpg";
 import g14 from "/Gallery/InterClass_Comp.jpg";
 import g15 from "/Gallery/ScienceLab.jpg";
@@ -464,7 +464,7 @@ const GalleryPage: React.FC = () => {
           >
             <div className="bg-white rounded-lg overflow-hidden">
               <div className="relative">
-                <img
+                <img loading="lazy" decoding="async"
                   src={selectedItem.image}
                   alt={selectedItem.title}
                   className="w-full max-h-[70vh] object-contain"

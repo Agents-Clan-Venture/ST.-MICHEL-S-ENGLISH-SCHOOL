@@ -223,7 +223,7 @@ const AboutPage: React.FC = () => {
               className="relative animate-slide-up"
               style={{ animationDelay: "0.2s" }}
             >
-              <img
+              <img loading="lazy" decoding="async"
                 src={welcome}
                 alt="welcome to St. Michel's"
                 className="rounded-lg shadow-xl"
@@ -246,7 +246,7 @@ const AboutPage: React.FC = () => {
               className="relative animate-slide-up"
               style={{ animationDelay: "0.2s" }}
             >
-              <img
+              <img loading="lazy" decoding="async"
                 src={mission}
                 alt="St. Michel's mission"
                 className="rounded-lg shadow-xl"
@@ -296,7 +296,7 @@ const AboutPage: React.FC = () => {
                 className="shadow-md rounded-xl overflow-hidden bg-white flex flex-col items-center hover:shadow-lg transition duration-300 ease-in-out"
               >
                 <div className="w-full h-64 overflow-hidden">
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={member.imgPath}
                     alt={member.name}
                     className="w-full h-full mt-5 object-contain object-top transition-transform duration-300 hover:scale-105"
@@ -325,7 +325,7 @@ const AboutPage: React.FC = () => {
               <div className="shadow-md p-6 mb-6 bg-white rounded-lg">
                 <div className="relative space-y-4 animate-slide-up">
                   {/* Floating Image */}
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={member.imgPath}
                     alt={member.name}
                     style={{
@@ -378,7 +378,7 @@ const AboutPage: React.FC = () => {
             {boardMembersVision.map((member, index) => (
               <div className="flex md:flex-row flex-col shadow-md">
                 <div className="flex justify-center">
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={member.imgPath}
                     alt={member.name}
                     className={`rounded-lg ${member.scale == 1 && "w-1/2"} h-[${
@@ -429,7 +429,7 @@ const AboutPage: React.FC = () => {
               <div className="shadow-md p-6 mb-6 bg-white rounded-lg">
                 <div className="relative space-y-4 animate-slide-up">
                   {/* Floating Image */}
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={member.imgPath}
                     alt={member.name}
                     style={{
@@ -478,7 +478,7 @@ const AboutPage: React.FC = () => {
             {seniorStaff.map((member, index) => (
               <div className="flex md:flex-row flex-col shadow-md">
                 <div className="flex justify-center">
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={member.imgPath}
                     alt={member.name}
                     className={`rounded-lg w-[80%] animate-slide-up`}
@@ -526,7 +526,7 @@ const AboutPage: React.FC = () => {
               >
                 {/* Image */}
                 <div className="w-full h-64 overflow-hidden">
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={member.imgPath}
                     alt={member.name}
                     className="w-full h-full object-cover object-top transition-transform duration-300 hover:scale-105"

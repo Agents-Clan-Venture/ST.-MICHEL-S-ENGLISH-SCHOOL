@@ -180,7 +180,7 @@ const ExtracurricularPage: React.FC = () => {
             {activities.map((activity) => (
               <SwiperSlide key={activity.id}>
                 <div className="bg-white rounded-lg overflow-hidden shadow-md">
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={activity.image}
                     alt={activity.title}
                     className="w-full h-48 object-cover"

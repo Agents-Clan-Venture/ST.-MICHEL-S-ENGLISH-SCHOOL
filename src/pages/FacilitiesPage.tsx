@@ -148,7 +148,7 @@
 //                 className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
 //               >
 //                 <div className="relative overflow-hidden">
-//                   <img
+//                   <img loading="lazy" decoding="async"
 //                     src={activity.image}
 //                     alt={activity.title}
 //                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
@@ -205,18 +205,18 @@
 // export default DepartmentsPage;
 
 import React, { useState, useEffect } from "react";
-import f1 from "/Facilities/Karate.png";
+import f1 from "/Facilities/Karate.jpg";
 import f2 from "/Facilities/band.jpg";
-import f3 from "/Facilities/Scouts.png";
-import f4 from "/Facilities/Cultural.png";
+import f3 from "/Facilities/Scouts.jpg";
+import f4 from "/Facilities/Cultural.jpg";
 import f5 from "/Facilities/playg.jpg";
 import f6 from "/Facilities/Science_Lab.jpg";
-import f7 from "/Facilities/Library.png";
-import f8 from "/Facilities/Classroom.png";
+import f7 from "/Facilities/Library.jpg";
+import f8 from "/Facilities/Classroom.jpg";
 import f9 from "/Facilities/Auditorium.jpg";
 import f10 from "/Facilities/Digital.jpg";
 import f11 from "/Facilities/Student_Comm.jpg";
-import f12 from "/Facilities/Security.png";
+import f12 from "/Facilities/Security.jpg";
 import f13 from "/Facilities/Bus.png";
 import f14 from "/Facilities/BusTracking.png";
 import f15 from "/Facilities/Staff.jpg";
@@ -469,7 +469,7 @@ const DepartmentsPage: React.FC = () => {
                 className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
               >
                 <div className="relative overflow-hidden">
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={activity.image}
                     alt={activity.title}
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"

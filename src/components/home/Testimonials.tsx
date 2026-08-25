@@ -98,7 +98,7 @@ const Testimonials: React.FC = () => {
                   </p>
 
                   <div className="flex flex-col items-center">
-                    <img
+                    <img loading="lazy" decoding="async"
                       src={testimonial.avatar}
                       alt={testimonial.name}
                       className="w-20 h-20 rounded-full object-cover mb-3"

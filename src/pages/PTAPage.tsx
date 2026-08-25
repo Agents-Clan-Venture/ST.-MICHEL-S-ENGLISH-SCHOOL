@@ -7,7 +7,7 @@ import {
   UserCheck,
   GraduationCap,
 } from "lucide-react";
-import ptaImg from "/about/pta.png";
+import ptaImg from "/about/pta.jpg";
 
 const highlights = [
   {
@@ -97,7 +97,7 @@ const PTAPage: React.FC = () => {
               className="relative animate-slide-up"
               style={{ animationDelay: "0.2s" }}
             >
-              <img
+              <img loading="lazy" decoding="async"
                 src={ptaImg}
                 alt="Parent Teacher Association at St. Michel's"
                 className="rounded-lg shadow-xl w-full object-cover"
