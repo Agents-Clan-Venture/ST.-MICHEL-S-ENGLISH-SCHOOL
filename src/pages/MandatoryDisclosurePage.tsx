@@ -105,15 +105,23 @@ const staff: Row[] = [
 ];
 
 const infrastructure: Row[] = [
-  { info: "Total Campus Area of The School (In Square Mtr)", detail: "To be updated" },
-  { info: "No. and Size of The Class Rooms (In Sq Mtr)", detail: "To be updated" },
+  { info: "Total Campus Area of The School (In Square Mtr)", detail: "6276.74 Sq Mt" },
+  {
+    info: "No. and Size of The Class Rooms (In Sq Mtr)",
+    detail: "19 (Running Classrooms) - 41.8 Sq Mt each; 2 (Vacant Classrooms) - 41.8 Sq Mt each",
+  },
   {
     info: "No. and Size of Laboratories Including Computer Labs (In Sq Mtr)",
-    detail: "To be updated",
+    detail:
+      "2 (Composite Lab) - 41.8 Sq Mt; 1 (Computer Lab) - 83.61 Sq Mt; 1 (Mathematics Lab) - 41.8 Sq Mt; 1 (Science Lab) - 83.61 Sq Mt; 1 (Library) - 129.22 Sq Mt",
   },
   { info: "Internet Facility (Y/N)", detail: "Yes" },
-  { info: "No. of Girls Toilets", detail: "To be updated" },
-  { info: "No. of Boys Toilets", detail: "To be updated" },
+  { info: "No. of Girls Toilets", detail: "18" },
+  { info: "No. of Boys Toilets", detail: "21" },
+  {
+    info: "Link of YouTube Video of The Inspection of School Covering The Infrastructure of The School",
+    detail: "To be uploaded",
+  },
 ];
 
 const DocLink: React.FC<{ row: Row }> = ({ row }) => {
