@@ -114,10 +114,6 @@ const infrastructure: Row[] = [
   { info: "Internet Facility (Y/N)", detail: "Yes" },
   { info: "No. of Girls Toilets", detail: "18" },
   { info: "No. of Boys Toilets", detail: "21" },
-  {
-    info: "Link of YouTube Video of The Inspection of School Covering The Infrastructure of The School",
-    doc: "https://youtu.be/dF653co7DUo?si=o-MdXQ28cdv8XqSa",
-  },
 ];
 
 const DocLink: React.FC<{ row: Row }> = ({ row }) => {
