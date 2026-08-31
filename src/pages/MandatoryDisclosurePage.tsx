@@ -104,12 +104,12 @@ const infrastructure: Row[] = [
   {
     info: "No. and Size of The Class Rooms (In Sq Mtr)",
     detail:
-      "19 (Running Classrooms) - 41.8 Sq Mt\n2 (Vacant Classrooms) - 41.8 Sq Mt",
+      "Running Classrooms|19|41.8 Sq Mt\nVacant Classrooms|2|41.8 Sq Mt",
   },
   {
     info: "No. and Size of Laboratories Including Computer Labs (In Sq Mtr)",
     detail:
-      "2 (Composite Lab) - 41.8 Sq Mt\n1 (Computer Lab) - 83.61 Sq Mt\n1 (Mathematics Lab) - 41.8 Sq Mt\n1 (Science Lab) - 83.61 Sq Mt\n1 (Library) - 129.22 Sq Mt",
+      "Composite Lab|2|41.8 Sq Mt\nComputer Lab|1|83.61 Sq Mt\nMathematics Lab|1|41.8 Sq Mt\nScience Lab|1|83.61 Sq Mt\nLibrary|1|129.22 Sq Mt",
   },
   { info: "Internet Facility (Y/N)", detail: "Yes" },
   { info: "No. of Girls Toilets", detail: "18" },
@@ -174,9 +174,33 @@ const DisclosureTable: React.FC<{
               <td className="px-4 py-4 text-gray-800 align-top">{row.info}</td>
               <td className="px-4 py-4 align-top">
                 {showDetail && !row.doc ? (
-                  <span className="text-gray-700 whitespace-pre-line">
-                    {row.detail}
-                  </span>
+                  row.detail?.includes("|") ? (
+                    <table className="w-full text-sm border border-gray-200 rounded overflow-hidden">
+                      <thead>
+                        <tr className="bg-gray-100 text-gray-600 uppercase text-xs tracking-wide">
+                          <th className="px-3 py-2 text-left font-semibold">Facility</th>
+                          <th className="px-3 py-2 text-center font-semibold">No.</th>
+                          <th className="px-3 py-2 text-right font-semibold">Size (Each)</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {row.detail.split("\n").map((line) => {
+                          const [name, count, size] = line.split("|");
+                          return (
+                            <tr key={name} className="border-t border-gray-200">
+                              <td className="px-3 py-2 text-gray-800 font-medium">{name}</td>
+                              <td className="px-3 py-2 text-center text-gray-700">{count}</td>
+                              <td className="px-3 py-2 text-right text-gray-700 whitespace-nowrap">{size}</td>
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                  ) : (
+                    <span className="text-gray-700 whitespace-pre-line">
+                      {row.detail}
+                    </span>
+                  )
                 ) : (
                   <DocLink row={row} />
                 )}
